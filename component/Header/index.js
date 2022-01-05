@@ -7,7 +7,11 @@ const Header = () => {
     <React.Fragment>
       <div className={styles.wrapper}>
         <div className={styles.containers}>
-          <img className="mx-auto" src="/logo.png" alt="SuggestionBox" />
+          <Link href="/">
+            <a>
+              <img className="mx-auto" src="/logo.png" alt="SuggestionBox" />
+            </a>
+          </Link>
         </div>
       </div>
       <div className={styles.menu}>

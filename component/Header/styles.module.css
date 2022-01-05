@@ -29,6 +29,5 @@
     group 
     focus:bg-green-600 
     focus:text-white
-    focus:outline-black
-    hover:opacity-80
+    hover:text-black
 }
