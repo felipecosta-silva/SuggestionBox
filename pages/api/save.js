@@ -3,7 +3,10 @@ import credentials from '../../Credentials.json'
 
 const doc = new GoogleSpreadsheet('1f3vtsBEe2AaP0gtzy2wh_OxmGtu9t2FYYbanro8EeCo')
 
-
+const genCupom = () => {
+  codeCupom - parseInt(moment().format('YYMMDDHHmmssSSS')).toString(16).toUpperCase();
+  return code.substr(0,4) + '-' + code.substr(4,4) + '-' + code.substr(8,4);
+}
 export default async (req, res) => {
 
   try{
@@ -14,6 +17,7 @@ export default async (req, res) => {
 
     const sheetConfig = doc.sheetsByIndex[2]
     await sheetConfig.loadCells('B4:B6')
+
     const mostrarPromocaoCell = sheetConfig.getCell(3,1)
     const textPromocaoCell = sheetConfig.getCell(5,1)
 
@@ -22,8 +26,8 @@ export default async (req, res) => {
 
     if(mostrarPromocaoCell.value === 'VERDADEIRO') {
       // TODO: gerar cupom
-      Cupom = 'temporario'
-      Promo = textoCell.value
+      Cupom = genCupom()
+      Promo = textPromocaoCell.value
     }
 
     await sheet.addRow({
